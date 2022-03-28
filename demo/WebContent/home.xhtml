@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<f:view xmlns="http://www.w3c.org/1999/xhtml"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <title>Anotações</title>
+    </h:head>
+    <h:body>
+        <div>
+            <div>
+                Lista de Anotações
+            </div>
+            <h:dataTable value="#{anotacaoService.all}" var="item">
+                <h:column>
+                    <f:facet name="header"> Conteúdo</f:facet>
+                    #{item.conteudo}
+                </h:column>
+                <h:column>
+                    <f:facet name="header"> Importância</f:facet>
+                    #{item.importancia}
+                </h:column>
+            </h:dataTable>
+        </div>
+        <div>
+            <div>
+                Adicionar nova anotação:
+            </div>
+            <h:form>
+                <h:outputLabel for="conteudo" value="Conteúdo: "/>
+                <h:inputText id="conteudo" value="teste"/>
+                <h:outputLabel for="importancia" value="Importância: "/>
+                <h:inputText id="importancia" value="Arroz" converterMessage="Apenas números são aceitos."/>
+            </h:form>
+        </div>
+    </h:body>
+</f:view>
+</html>
